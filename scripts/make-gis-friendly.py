@@ -19,6 +19,8 @@ def main():
         df['geometry'] = df['geometry'].apply(shape)
         gdf = gpd.GeoDataFrame(df, crs=4326)
         gdf.to_file(f"{row.QuadKey}.geojson", driver="GeoJSON")
+        #added this line to convert GeoJSON files to shapefiles (.shp) in the same directory
+        gdf.to_file(f"{row.QuadKey}.shp")
 
 
 if __name__ == "__main__":
